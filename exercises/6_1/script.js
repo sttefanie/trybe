@@ -1,35 +1,23 @@
-const states = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
-const select = document.getElementById('uf');
-const button = document.getElementById('enviar');
-const resultado = document.getElementById('resultado');
-
-
 window.onload = function() {
-  for (let i = 0; i < estados.length; i++) {
-    let elemento = document.createElement('option')
-    elemento.innerHTML = estados[i]
-    elemento.value = estados[i]
-    select.appendChild(elemento)
-  }
+  const stateForm = document.querySelector('');
 }
+const brStates = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA",
+  "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR",
+  "SC", "SP", "SE", "TO"
+];
 
-button.addEventListener('click', (e) => {
-  e.preventDefault();
-  let nome = document.getElementById('name').value;
-  let email = document.getElementById('email').value;
-  let cpf = document.getElementById('cpf').value;
-  let adress = document.getElementById('adress').value;
-  let city = document.getElementById('city').value;
-  let uf = document.getElementById('uf').value;
-  let resumo = document.getElementById('cv').value;
-  let cargo = document.getElementById('cargo').value;
-  let descricao = document.getElementById('descricao').value;
-  let data = document.getElementById('data-inicio').value;
-  let array = [nome, email, cpf, adress, city, uf, resumo, cargo, descricao, data]
+function optionGenerate() {
+  let tagOption = document.createElement('option');
+  return tagOption;
+};
 
-  for (let i = 0; i < array.length; i++) {
-    let elemento = document.createElement('p');
-    elemento.innerHTML = array[i]
-    resultado.appendChild(elemento)
+function tagOptionGenerate(array) {
+  let stateNew = '';
+  for (index = 0; index < array.length; index += 1) {
+    stateNew = optionGenerate();
+    stateNew.innerText = array[index];
+    stateForm.appendChild(stateNew);
   }
-})
+};
+
+tagOptionGenerate(brStates)
